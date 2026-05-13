@@ -2,11 +2,9 @@ class HomeController < ApplicationController
   def index
     # render 'home/index'
     # ↑これ書かなくてもいい
-    def index
-      @title = 'デイトラ'
-    end
+    @article = Article.first
+  end
 
-    def about
-    end
+  def about
   end
 end
