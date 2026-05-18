@@ -10,9 +10,26 @@
 #
 class Article < ApplicationRecord
   validates :title, presence: true
+  # 文字数の制限 length
+  validates :title, length: { minimum: 2, maximum: 100 }
+  # 正規表現の設定（下記は「@」から始まらない、の意味） format
+  validates :title, format: { with: /\A(?!\@)/ }
+
   validates :content, presence: true
+  validates :content, length: { minimum: 10 }
+  # 内容が唯一になっているかを判定 uniqueness
+  validates :content, uniqueness: true
+
+  # 複数のデータを参照してルールを作る
+  validate :validate_title_and_content_length
 
   def display_created_at
     I18n.l(self.created_at, format: :default)
+  end
+
+  private
+  def validate_title_and_content_length
+    char_count = self.title.length + self.content.length
+    errors.add(:content, '100文字以上で!') unless char_count > 100
   end
 end
