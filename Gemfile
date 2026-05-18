@@ -23,7 +23,17 @@ gem "jbuilder"
 gem "sassc-rails"
 
 # fakerを導入
-gem 'faker'
+gem "faker"
+
+# HAMLを導入
+gem "hamlit"
+
+# annotateを導入
+gem "annotate"
+
+# デバッグをしやすくする
+gem "better_errors"
+gem "binding_of_caller"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -43,6 +53,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "pry-byebug"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -54,6 +65,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "html2haml"
 end
 
 group :test do
