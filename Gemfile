@@ -35,6 +35,9 @@ gem "annotate"
 gem "better_errors"
 gem "binding_of_caller"
 
+# ログインライブラリの導入
+gem 'devise'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
